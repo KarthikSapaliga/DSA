@@ -50,12 +50,12 @@ int pop(Stack *s){
     }
 }
 
-int peek(Stack *s){
-    if(isEmpty(*s)){
+int peek(Stack s){
+    if(isEmpty(s)){
         fprintf(stderr,"ERROR : Stack Underflow\n");
         exit(EXIT_FAILURE);
     }else{
-        return s->arr[s->top];
+        return s.arr[s.top];
     }
 }
 
@@ -89,7 +89,7 @@ int main(){
             case 2: element = pop(&stack);
                     printf("Popped element : %d\n",element);
                     break;
-            case 3: element = pop(&stack);
+            case 3: element = peek(stack);
                     printf("Peeked element : %d\n",element);
                     break;
             case 4: printf("Stack elements are :\n");
