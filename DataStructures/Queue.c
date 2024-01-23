@@ -51,8 +51,9 @@ int dequeue(Queue *q){
     if(isEmpty(*q)){
         printf("Error : <queue_underflow> cannot delete element.\n");
     }else{
+        q->front++;
         printf("%d is deleted from the queue.\n",q->arr[q->front]);
-        return q->arr[q->front++];
+        return q->arr[q->front];
     }
 }
 
@@ -82,13 +83,57 @@ void display(Queue q){
     if(isEmpty(q)){
         printf("Error : <empty_queue>\n");
     }else{
-        for(int i=q.front; i<=q.rear; i++){
+        for(int i=q.front+1; i<=q.rear; i++){
             printf("%d ",q.arr[i]);
         }
+        printf("\n");
     }
 }
 
 int main(){
+    Queue queue;
+    int choice,element;
+    size_t queue_size;
     
+    init(&queue);
+    menu();
+    do{
+        printf("Please enter your choice: ");
+        scanf("%d",&choice);
+
+        switch(choice){
+            case 0: menu();
+                    break;
+            case 1: printf("Enter the element to insert onto the queue : ");
+                    scanf("%d",&element);
+                    enqueue(&queue, element);
+                    break;
+            case 2: dequeue(&queue);
+                    break;
+            case 3: front(queue);
+                    break;
+            case 4: rear(queue);
+                    break;
+            case 5: if(isEmpty(queue)){
+                        printf("The queue is currently empty.\n");
+                    }else{
+                        printf("The queue is not empty.\n");
+                    }break;
+            case 6: if(isFull(queue)){
+                        printf("The queue is currently full.\n");
+                    }else{
+                        printf("The queue is not full.\n");
+                    }break;
+            case 7: queue_size=size(queue);
+                    printf("The queue size is : %d\n",queue_size);
+                    break;
+            case 8: printf("The elements in the queue are:\n");
+                    display(queue);
+                    break;
+            case -1:printf("Exiting the program...\n");
+                    break;
+            default:printf("Invalid choice! Please choose a valid option.\n");
+        }
+    }while(choice != -1);
     return 0;
 }
