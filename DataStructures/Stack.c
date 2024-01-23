@@ -21,7 +21,8 @@ void menu(){
     printf("3. peek()\n");
     printf("4. isEmpty()\n");
     printf("5. isFull()\n");
-    printf("6. display()\n");
+    printf("6. size()\n");
+    printf("7. display()\n");
     printf("\n[0] MENU\t[-1] EXIT\n");
     printf("=============================================\n");
 }
@@ -61,6 +62,10 @@ int peek(Stack s){
     }
 }
 
+int size(Stack s){
+    return s.top+1;
+}
+
 void display(Stack s){
     if(isEmpty(s)){
         printf("Error : <empty_stack>\n");
@@ -75,7 +80,8 @@ void display(Stack s){
 int main(){
     Stack stack;
     int choice,element;
-
+    size_t stack_size;
+    
     init(&stack);
     menu();
     do{
@@ -103,7 +109,10 @@ int main(){
                     }else{
                         printf("The stack is not full.\n");
                     }break;
-            case 6: printf("The elements in the stack are:\n");
+            case 6: stack_size=size(stack);
+                    printf("The stack size is : %d\n",stack_size);
+                    break;
+            case 7: printf("The elements in the stack are:\n");
                     display(stack);
                     break;
             case -1:printf("Exiting the program...\n");
