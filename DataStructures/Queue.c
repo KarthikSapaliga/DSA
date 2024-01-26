@@ -9,11 +9,6 @@ typedef struct{
     int rear;
 }Queue;
 
-void init(Queue *q){
-    q->front = -1;
-    q->rear = -1;
-}
-
 void menu(){
     printf("=============================================\n");
     printf("Queue Operations : \n");
@@ -30,6 +25,11 @@ void menu(){
     printf("=============================================\n");
 }
 
+void init(Queue *q){
+    q->front = -1;
+    q->rear = -1;
+}
+
 int isFull(Queue q){
     return q.rear == MAX_SIZE-1;
 }
@@ -40,7 +40,7 @@ int isEmpty(Queue q){
 
 void enqueue(Queue *q, int ele){
     if(isFull(*q)){
-        printf("Error : <queue_overflow> cannot insert element.\n");
+        printf("error : <queue_overflow> cannot insert element.\n");
     }else{
         q->arr[++q->rear] = ele;
         printf("%d is inserted onto the queue.\n",ele);
@@ -49,7 +49,7 @@ void enqueue(Queue *q, int ele){
 
 int dequeue(Queue *q){
     if(isEmpty(*q)){
-        printf("Error : <queue_underflow> cannot delete element.\n");
+        printf("error : <queue_underflow> cannot delete element.\n");
     }else{
         q->front++;
         printf("%d is deleted from the queue.\n",q->arr[q->front]);
@@ -59,7 +59,7 @@ int dequeue(Queue *q){
 
 int front(Queue q){
     if(isEmpty(q)){
-        printf("Error : <empty_queue>\n");
+        printf("error : <empty_queue>\n");
     }else{
         printf("%d is the front element of the queue.\n",q.arr[q.front]);
         return q.arr[q.front];
@@ -68,7 +68,7 @@ int front(Queue q){
 
 int rear(Queue q){
     if(isEmpty(q)){
-        printf("Error : <empty_queue>\n");
+        printf("error : <empty_queue>\n");
     }else{
         printf("%d is the rear element of the queue.\n",q.arr[q.rear]);
         return q.arr[q.rear];
@@ -81,7 +81,7 @@ int size(Queue q){
 
 void display(Queue q){
     if(isEmpty(q)){
-        printf("Error : <empty_queue>\n");
+        printf("error : <empty_queue>\n");
     }else{
         for(int i=q.front+1; i<=q.rear; i++){
             printf("%d ",q.arr[i]);

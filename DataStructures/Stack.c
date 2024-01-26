@@ -8,10 +8,6 @@ typedef struct{
     int top;
 }Stack;
 
-void init(Stack *s){
-    s->top = -1;
-}
-
 void menu(){
     printf("=============================================\n");
     printf("Stack Operations : \n");
@@ -27,6 +23,10 @@ void menu(){
     printf("=============================================\n");
 }
 
+void init(Stack *s){
+    s->top = -1;
+}
+
 int isFull(Stack s){
     return s.top == MAX_SIZE-1; 
 }
@@ -37,7 +37,7 @@ int isEmpty(Stack s){
 
 void push(Stack *s, int ele){
     if(isFull(*s)){
-        printf("Error : <stack_overflow> cannot push element.\n");
+        printf("error : <stack_overflow> cannot push element.\n");
     }else{
         s->arr[++s->top] = ele;
         printf("%d is pushed onto the stack.\n",ele);
@@ -46,7 +46,7 @@ void push(Stack *s, int ele){
 
 int pop(Stack *s){
     if(isEmpty(*s)){
-        printf("Error : <stack_underflow> cannot pop element.\n");
+        printf("error : <stack_underflow> cannot pop element.\n");
     }else{
         printf("%d is popped from the stack.\n",s->arr[s->top]);
         return s->arr[s->top--];
@@ -55,7 +55,7 @@ int pop(Stack *s){
 
 int peek(Stack s){
     if(isEmpty(s)){
-        printf("Error : <empty_stack>\n");
+        printf("error : <empty_stack>\n");
     }else{
         printf("%d is peeked from the stack.\n",s.arr[s.top]);
         return s.arr[s.top];
@@ -68,7 +68,7 @@ int size(Stack s){
 
 void display(Stack s){
     if(isEmpty(s)){
-        printf("Error : <empty_stack>\n");
+        printf("error : <empty_stack>\n");
     }else{
         for(int i=0; i<=s.top; i++){
             printf("%d ",s.arr[i]);
