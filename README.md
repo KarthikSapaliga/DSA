@@ -10,6 +10,7 @@
 
 ## 2. DataStructures
 
-### [Stack](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Stack.c)
-### [Queue](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Queue.c)
-### [Linkedlist](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Linkedlist.c)
+### i) Linear
+[Stack](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Stack.c)
+[Queue](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Queue.c)
+[Linkedlist](https://github.com/KarthikSapaliga/DSA/blob/dev/DataStructures/Linkedlist.c)
