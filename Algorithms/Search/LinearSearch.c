@@ -12,26 +12,26 @@ int LinearSearch(int arr[],int n,int target){
 
 int main(){
     int n,target;
+
     printf("Enter the number of elements : ");
     scanf("%d",&n);
     if(n==0){
-        printf("ERROR : Linear Search is not possible !\n");
-        exit(1);
+        printf("error : Enter a valid positive integer <N>\n");
+        exit(EXIT_FAILURE);
     }
 
     int *arr = (int *)malloc(n * sizeof(int));
     printf("Enter the elements :\n");
     for(int i=0;i<n;i++) scanf("%d",arr+i);
-
-    printf("Enter the element to be searched : ");
+    printf("Enter the element to search : ");
     scanf("%d",&target);
 
     int loc = LinearSearch(arr,n,target);
-    if(loc != -1) 
-        printf("The element %d found at index %d\n",target,loc);
-    else 
-        printf("The element not found !\n");
-
+    if(loc != -1){
+        printf("The element %d is found at index %d\n",target,loc);
+    }else{
+        printf("Element not found !\n");
+    }
     free(arr);
     return 0;
 }
