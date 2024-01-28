@@ -145,6 +145,15 @@ void display(node *head){
     printf("\n");
 }
 
+void freeNode(node *head){
+    node *ptr = head;
+    while(ptr!=NULL){
+        head = ptr;
+        ptr = ptr->next;
+        free(head);
+    }
+}
+
 int main(){
     node *head = NULL;
     int choice,element,pos;
@@ -195,5 +204,6 @@ int main(){
             
         }
     }while(choice != -1);
+    free(head);
     return 0;
 }
